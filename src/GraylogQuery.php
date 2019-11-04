@@ -109,6 +109,8 @@ class GraylogQuery
     public function term($value)
     {
         if (!$value) {
+            $this->removeEndingConj();
+
             return $this;
         }
 
@@ -136,6 +138,8 @@ class GraylogQuery
         }
 
         if (!$value) {
+            $this->removeEndingConj();
+
             return $this;
         }
 
@@ -167,6 +171,8 @@ class GraylogQuery
     public function field($field, $value)
     {
         if (!$value) {
+            $this->removeEndingConj();
+
             return $this;
         }
 
@@ -190,10 +196,6 @@ class GraylogQuery
      */
     public function opField($field, $operator, $value)
     {
-        if (!$operator || !$value) {
-            return $this;
-        }
-
         array_push($this->queries, $field . self::COLON . $operator . $value);
 
         return $this;
@@ -208,12 +210,15 @@ class GraylogQuery
      * @return GraylogQuery used to chain calls
      * @since 1.0.0
      */
-    public function fuzzField($field, $value, $distance = '') {
+    public function fuzzField($field, $value, $distance = '')
+    {
         if ($distance && !is_numeric($distance)) {
             $distance = '';
         }
 
         if (!$value) {
+            $this->removeEndingConj();
+
             return $this;
         }
 
@@ -326,7 +331,50 @@ class GraylogQuery
      */
     public function build()
     {
+        $this->removeStartingConj();
+
         return implode(self::SPACE, $this->queries);
+    }
+
+    /**
+     * Remove the conjunction at the end.
+     * @since 1.0.0
+     */
+    private function removeEndingConj()
+    {
+        if (empty($this->queries)) {
+            return;
+        }
+
+        $conjunctions = [self::AND, self::OR, self::NOT];
+        $lastIndex = count($this->queries) - 1;
+        $lastQuery = $this->queries[$lastIndex];
+
+        if (in_array($lastQuery, $conjunctions)) {
+            unset($this->queries[$lastIndex]);
+        }
+    }
+
+    /**
+     * Remove the starting conjunction.
+     * @since 1.0.0
+     */
+    private function removeStartingConj() {
+        if (empty($this->queries)) {
+            return;
+        }
+
+        $conjunctions = [self::AND, self::OR];
+        $firstIndex = 0;
+        $firstQuery = $this->queries[$firstIndex];
+
+        if (in_array($firstQuery, $conjunctions)) {
+            unset($this->queries[$firstIndex]);
+        }
+
+        if (count($this->queries) === 1 && $firstQuery === self::NOT) {
+            unset($this->queries[$firstIndex]);
+        }
     }
 
     /**
