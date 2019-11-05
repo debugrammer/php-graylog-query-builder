@@ -272,10 +272,10 @@ Sometimes you might want to compose dynamic queries by condition.
 ### 1. Prepend Graylog query
 **Usage:**
 ```
-GraylogQuery query = GraylogQueryBuilder\GraylogQuery::builder()
+$query = GraylogQueryBuilder\GraylogQuery::builder()
     ->not()->exists('type');
 
-GraylogQueryBuilder\GraylogQuery::builder(query)
+GraylogQueryBuilder\GraylogQuery::builder($query)
     ->and()->term('ssh')
     ->build();
 ```
@@ -287,12 +287,12 @@ NOT _exists_:type AND "ssh"
 ### 2. Append Graylog query
 **Usage:**
 ```
-GraylogQuery query = GraylogQueryBuilder\GraylogQuery::builder()
+$query = GraylogQueryBuilder\GraylogQuery::builder()
     ->or()->exists('type');
 
 GraylogQueryBuilder\GraylogQuery::builder()
     ->term('ssh')
-    ->append(query)
+    ->append($query)
     ->build();
 ```
 **Output:**
