@@ -250,7 +250,7 @@ final class GraylogQueryTest extends TestCase
         $query = GraylogQuery::builder($prepend)
             ->and()->term("ssh");
 
-        $expect = "NOT _exists_:type AND \"ssh\"";
+        $expect = 'NOT _exists_:type AND "ssh"';
 
         $this->assertEquals($expect, $query->build());
     }
