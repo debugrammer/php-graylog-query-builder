@@ -1,7 +1,9 @@
-# Graylog Query Builder for PHP
+# Graylog Query Builder for PHP [![Build Status](https://travis-ci.org/debugrammer/php-graylog-query-builder.svg?branch=master)](https://travis-ci.org/debugrammer/php-graylog-query-builder)
 > PHP version of [Graylog Search Query](https://docs.graylog.org/en/latest/pages/queries.html) Builder especially useful for working with [Graylog REST API](https://docs.graylog.org/en/latest/pages/configuration/rest_api.html).
 
-[![Build Status](https://travis-ci.org/debugrammer/php-graylog-query-builder.svg?branch=master)](https://travis-ci.org/debugrammer/php-graylog-query-builder)
+[![Latest Stable Version](https://poser.pugx.org/debugrammer/php-graylog-query-builder/v/stable)](https://packagist.org/packages/debugrammer/php-graylog-query-builder)
+[![Total Downloads](https://poser.pugx.org/debugrammer/php-graylog-query-builder/downloads)](https://packagist.org/packages/debugrammer/php-graylog-query-builder)
+[![License](https://poser.pugx.org/debugrammer/php-graylog-query-builder/license)](https://packagist.org/packages/debugrammer/php-graylog-query-builder)
 
 ## Getting Started
 PHP versions 7.0 up to PHP 7.3 are currently supported.
