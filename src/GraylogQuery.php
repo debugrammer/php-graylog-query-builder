@@ -359,7 +359,8 @@ class GraylogQuery
      * Remove the starting conjunction.
      * @since 1.0.0
      */
-    private function removeStartingConj() {
+    private function removeStartingConj()
+    {
         if (empty($this->queries)) {
             return;
         }

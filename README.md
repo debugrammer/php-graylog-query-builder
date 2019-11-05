@@ -1,9 +1,28 @@
 # Graylog Query Builder for PHP
 > PHP version of [Graylog Search Query](https://docs.graylog.org/en/latest/pages/queries.html) Builder especially useful for working with [Graylog REST API](https://docs.graylog.org/en/latest/pages/configuration/rest_api.html).
 
+[![Build Status](https://travis-ci.org/debugrammer/php-graylog-query-builder.svg?branch=master)](https://travis-ci.org/debugrammer/php-graylog-query-builder)
+
+## Getting Started
+PHP versions 7.0 up to PHP 7.3 are currently supported.
+Graylog Query Builder for PHP is recommended to use [composer](https://getcomposer.org/) to install the library.
+
+Add php-graylog-query-builder to `composer.json` either by running composer:
+```
+$ composer require debugrammer/php-graylog-query-builder
+```
+or by defining it manually:
+```
+"require": {
+   "debugrammer/php-graylog-query-builder": "~1.0"
+}
+```
+
 ## Usage
 ```
-GraylogQueryBuilder\GraylogQuery::builder()
+use GraylogQueryBuilder\GraylogQuery as GraylogQuery;
+
+GraylogQuery::builder()
     ->field('type', 'ssh')
     ->and()->exists('id')
     ->and()->openParen()

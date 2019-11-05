@@ -1,13 +1,20 @@
 {
   "name": "debugrammer/php-graylog-query-builder",
-  "description": "Graylog Search Query Builder especially useful for working with Graylog REST API.",
+  "type": "library",
+  "description": "Graylog Search Query Builder for Graylog REST API",
+  "keywords": [
+    "graylog",
+    "searchquery",
+    "querybuilder"
+  ],
   "homepage": "https://github.com/debugrammer/php-graylog-query-builder",
   "license": "MIT",
   "authors": [
     {
       "name": "Joonsang Park",
       "email": "debugrammer@gmail.com",
-      "homepage": "http://joonsang.com/"
+      "homepage": "http://joonsang.com/",
+      "role": "Developer"
     }
   ],
   "require": {
