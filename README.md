@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/debugrammer/php-graylog-query-builder/license)](https://packagist.org/packages/debugrammer/php-graylog-query-builder)
 
 ## Getting Started
-PHP versions 7.0 up to PHP 7.3 are currently supported.
+PHP versions 7.0 up to PHP 7.4 are currently supported.
 Graylog Query Builder for PHP is recommended to use [composer](https://getcomposer.org/) to install the library.
 
 Add php-graylog-query-builder to `composer.json` either by running composer:
